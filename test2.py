@@ -1,3 +1,4 @@
 print("novi test")
 
-print("Nova linija koda")
+print("druga linija")
+
