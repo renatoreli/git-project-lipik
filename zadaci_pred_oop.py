@@ -13,12 +13,16 @@ print(duplikati)
 # %%
 #2. Napravi obrtaljku
 # od unesenog stringa te na svakom drugom mjestu pridruzi nasumičan broj.
-string="Random"[::-1]
-print(string)
-lista_string=list(string)
-
-print (lista_string)
-
+import random
+txt  = input('Unesi neki string')
+new_string=[]
+index = len(txt)
+while index:
+    index -= 1
+    x = str(random.randint(0,9))
+    new_string.append(txt[index])
+    new_string.append(x)
+print(''.join(new_string))
 
 
 # %%
@@ -296,3 +300,112 @@ b = int(input())
 print("Najveci zajednicki djelitelj je ", end="")
 print(djelitelj(a,b))
 # %%
+#23
+T = 1000
+def isplata(t,w):
+    t = t-w
+    return t
+
+def uplata(t,d):
+    t=t+d
+    return t
+
+while True:
+    izbor=input("Dobrodosli na bankomat\n Odaberite 1 za podizanje novca, a 2 za uplaćivanje")
+    if izbor=="1":
+        W=int(input("Koliki je iznos isplate? "))
+        T = isplata(T,W)
+        a = input("Zelite li vidjeti novo stanje racuna? ")
+        if a =="da":
+            print(T)
+    elif izbor=="2":
+        D= int(input("Kolik je iznos uplate? "))
+        T=uplata(T,D)
+        b=input("Zelite li vidjeti novo stanje racuna? ")
+        if b=="da":
+            print(T)
+    elif izbor=="quit":
+        break
+
+#%%
+#25
+
+proizvodi = []
+
+def polica(predmet, cijena, kolicina):
+    d1 ={}
+    d1.setdefault('predmet', predmet)
+    d1.setdefault('cijena', cijena)
+    d1.setdefault('kolicina', kolicina)
+    proizvodi = [d1]
+    print(proizvodi)
+
+predmet= input('unesi predmet')
+cijena=input('unesi cijenu ')
+kolicina=input('unesi kolicinu')
+
+polica(predmet,cijena,kolicina)
+
+#%%
+#28
+import random
+recenice=["danas je petak","nebo se plavi","lagan kao oblatna","nesto random ne znam"]
+while True:
+    unos=input("Unesi string kako bi dobio povratnu informaciju")
+    if unos.isalpha():
+        a=(random.choice(recenice))
+        print(a)
+    elif unos== "-1":
+        break
+# %%
+#24. zadan je rjecnik:
+#automobil = {
+#    'kilometri' : 230000,
+#    'oprema' : ['zimske gume', 'zracni jastuk', 'protuprovalni bacac plamena'],
+
+#}
+ #   a) kilometre preuredite tako da dodatno broji i kilometre do servisa. postavite vrijednost na 300.
+  #  b) iz opreme, promijenite "zimske gume" u "ljetne gume" te "zracni jastuk" u "zracni balon"
+   # c) dodajte polje za unos specifikacije koja sadrzi godinu proizvodnje (1976.), potrosnju (15 litara) i max. brzinu (178 km/h)
+    #d) dodajte cijenu i postavite je na 45000
+    #e) dodajte osiguranje (npr. croatia) te postavite vrijednost na True
+    #f) kada se pozove funkcija 'servis', znaci da se automobil servisirao i promijenile su se sljedece vrijednosti:
+     #   - kilometri do servisa su se postavili na 2000
+      #  - zracni balon postao je 'novi zracni jastuk'
+       # - ljetne gume promijenjene su na 'cjelogodisnje gume'
+        #- cijenu uvecajte za 2000
+    
+automobil = {'kilometri' : 230000,'oprema' : ['zimske gume', 'zracni jastuk', 'protuprovalni bacac plamena']}
+#b
+automobil['oprema'].append('ljetne gume')
+print(automobil)
+del automobil['oprema'][0]
+print(automobil)
+#d
+automobil.update({"cijena":'45000'})
+print(automobil)
+#e
+automobil.update({"Croatia osiguranje": True})
+print(automobil)
+
+
+# %%
+
+
+#chatbot
+
+bot={"bok":"bok", "kako si":"dobro sam a ti?",
+"kako se zoves":"zovem se Random Bot","sto ti je funkcija":"odrzavanje razgovora s tobom"
+,"u kojem programskom jeziku si napravljen":"u pythonu"}
+
+while True:
+    odgovor = input()
+    
+    if odgovor == "quit":
+        break
+
+    else:
+        print(bot[odgovor])
+
+# %%
+# nisam stigao chatbota usavrsiti planiram sa Zbirkom odgovora u listi
